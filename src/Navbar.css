@@ -1,0 +1,70 @@
+.logo-main {
+  width: 195px;
+  height: 20px;
+}
+
+.navbar-component {
+  background: #1a0d3680;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+
+.navscroll {
+  background: #fff;
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.212);
+          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.212);
+}
+
+.flex-nav {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 1rem 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-nav .left-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-nav .nav-link {
+  margin: 0 0 0 3rem;
+  font-size: 18px;
+  font-weight: bold;
+  color: #414246;
+  color: #fff;
+  text-decoration: none;
+}
+
+.flex-nav .links-color {
+  color: #414246;
+}
+
+.flex-nav .get-started-btn {
+  background: #9ee5d9;
+  color: #414246;
+  padding: 10.5px 26px 9.5px;
+  min-width: 120px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50rem;
+  -webkit-box-shadow: 0 1px 1px #4142464d;
+          box-shadow: 0 1px 1px #4142464d;
+  text-decoration: none;
+}
+/*# sourceMappingURL=Navbar.css.map */
