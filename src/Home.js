@@ -1010,6 +1010,77 @@ function Home() {
             <img src="\images\svgs-s3\unify.svg" alt="" className="unify-reg" />
           </div>
         </section>
+
+        <section className="section-four">
+          <div className="s4-container">
+            <div className="s4-grid">
+              <div className="s4-grid-top">
+                <h4>CHOOSE YOUR DEPLOYMENT</h4>
+                <div className="s4t-inner-grid">
+                  <div className="s4ti-grid-text">
+                    <h6>ASTRO</h6>
+                    <h2>
+                      Fully managed, <br /> deployed in your cloud
+                    </h2>
+                    <p>
+                      Keep orchestration close to your data with a single-tenant
+                      data plane in your cloud, no DevOps required. With a
+                      common control plane for data pipelines across clouds,
+                      you’ll sleep easy knowing your environment is managed by
+                      the core developers behind Apache Airflow.
+                    </p>
+                    <div>
+                      <Link to="/get-started" className="learn-more-btn">
+                        Learn More
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="s4ti-grid-img">
+                    <img
+                      src="\images\svgs-s4\fully-managed@2x.png"
+                      alt=""
+                      className="fully-reg"
+                    />
+                    <img
+                      src="\images\svgs-s4\fully-managed-mobile@2x.png"
+                      alt=""
+                      className="fully-mobile"
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr className="s4-hr" />
+              <div className="s4-grid-bottom">
+                <div className="s4bi-grid-img">
+                  <img
+                    src="\images\svgs-s4\self-managed@2x.png"
+                    alt=""
+                    className="self-reg"
+                  />
+                  <img
+                    src="\images\svgs-s4\self-managed-mobile@2x.png"
+                    alt=""
+                    className="self-mobile"
+                  />
+                </div>
+                <div className="s4bi-grid-text">
+                  <h6>SOFTWARE</h6>
+                  <h2>Self managed, deployed in your private cloud</h2>
+                  <p>
+                    Launch, manage, and secure Airflow environments with an
+                    enterprise-ready software platform built for the most
+                    demanding settings.
+                  </p>
+                  <div>
+                    <Link to="/get-started" className="learn-more-btn">
+                      Learn More
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
