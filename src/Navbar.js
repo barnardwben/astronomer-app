@@ -122,25 +122,13 @@ function Navbar() {
                 ref={mobileNavContainerRef}
               >
                 <div className="mobile-nav-links ">
-                  <Link
-                    to="/product"
-                    className="nav-link-mobile"
-                    ref={linksOneRef}
-                  >
+                  <Link to="/product" className="nav-link-mobile">
                     PRODUCT
                   </Link>
-                  <NavLink
-                    to="/resources"
-                    className="nav-link-mobile"
-                    ref={linksTwoRef}
-                  >
+                  <NavLink to="/resources" className="nav-link-mobile">
                     RESOURCES
                   </NavLink>
-                  <NavLink
-                    to="/company"
-                    className="nav-link-mobile"
-                    ref={linksThreeRef}
-                  >
+                  <NavLink to="/company" className="nav-link-mobile">
                     COMPANY
                   </NavLink>
                   <Link to="/get-started" className="get-started-btn-mobile">
