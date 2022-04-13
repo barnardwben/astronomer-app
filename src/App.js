@@ -2,6 +2,7 @@ import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import Home from "./Home";
 import Product from "./Product";
 import Resources from "./Resources";
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/company" element={<Company />} />
         <Route exact path="/get-started" element={<GetStarted />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

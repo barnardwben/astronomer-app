@@ -1,0 +1,93 @@
+.develop-locally {
+  p {
+    font-size: 18px;
+    color: #414246;
+  }
+
+  .purple-info-container {
+    max-width: 915px;
+    width: 95%;
+    margin: 0 auto;
+    .pi-container-btns {
+      display: flex;
+      width: 100%;
+
+      .pi-btn {
+        border: none;
+        background: #3f2971;
+        padding: 1rem;
+        width: 100%;
+        color: #fff;
+        font-family: MyFont;
+        font-size: 18px;
+      }
+
+      .active-tab {
+        background: #59418d;
+        border-bottom: 3px solid #9478d2;
+      }
+
+      .pi-one {
+        border-top-left-radius: 0.85rem;
+      }
+      .pi-two {
+        border-left: 1px solid #1a1c1f;
+        border-right: 1px solid #1a1c1f;
+      }
+      .pi-three {
+        border-top-right-radius: 0.85rem;
+      }
+    }
+
+    @media (max-width: 802px) {
+      .pi-container-btns {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .pi-one {
+          border-top-left-radius: 0.85rem;
+          border-top-right-radius: 0.85rem;
+        }
+        .pi-two {
+          border-left: 1px solid #1a1c1f;
+          border-right: 1px solid #1a1c1f;
+        }
+        .pi-three {
+          border-top-right-radius: 0;
+        }
+      }
+    }
+
+    .pi-body {
+      background-color: #1a0e36;
+      min-height: 516px;
+      border-bottom-left-radius: 0.75rem;
+      border-bottom-right-radius: 0.75rem;
+
+      .pi-body-content {
+        overflow-x: scroll;
+        max-width: 913px;
+      }
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #1a0e36;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #1a0e36;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1a0e36;
+    }
+  }
+}

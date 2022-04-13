@@ -1,0 +1,98 @@
+.develop-locally p {
+  font-size: 18px;
+  color: #414246;
+}
+
+.develop-locally .purple-info-container {
+  max-width: 915px;
+  width: 95%;
+  margin: 0 auto;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.develop-locally .purple-info-container .pi-container-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.develop-locally .purple-info-container .pi-container-btns .pi-btn {
+  border: none;
+  background: #3f2971;
+  padding: 1rem;
+  width: 100%;
+  color: #fff;
+  font-family: MyFont;
+  font-size: 18px;
+}
+
+.develop-locally .purple-info-container .pi-container-btns .active-tab {
+  background: #59418d;
+  border-bottom: 3px solid #9478d2;
+}
+
+.develop-locally .purple-info-container .pi-container-btns .pi-one {
+  border-top-left-radius: 0.85rem;
+}
+
+.develop-locally .purple-info-container .pi-container-btns .pi-two {
+  border-left: 1px solid #1a1c1f;
+  border-right: 1px solid #1a1c1f;
+}
+
+.develop-locally .purple-info-container .pi-container-btns .pi-three {
+  border-top-right-radius: 0.85rem;
+}
+
+@media (max-width: 802px) {
+  .develop-locally .purple-info-container .pi-container-btns {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .develop-locally .purple-info-container .pi-container-btns .pi-one {
+    border-top-left-radius: 0.85rem;
+    border-top-right-radius: 0.85rem;
+  }
+  .develop-locally .purple-info-container .pi-container-btns .pi-two {
+    border-left: 1px solid #1a1c1f;
+    border-right: 1px solid #1a1c1f;
+  }
+  .develop-locally .purple-info-container .pi-container-btns .pi-three {
+    border-top-right-radius: 0;
+  }
+}
+
+.develop-locally .purple-info-container .pi-body {
+  background-color: #1a0e36;
+  min-height: 516px;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.develop-locally .purple-info-container .pi-body .pi-body-content {
+  overflow-x: scroll;
+  max-width: 913px;
+}
+
+.develop-locally .purple-info-container ::-webkit-scrollbar {
+  width: 1px;
+}
+
+.develop-locally .purple-info-container ::-webkit-scrollbar-track {
+  background: #1a0e36;
+}
+
+.develop-locally .purple-info-container ::-webkit-scrollbar-thumb {
+  background: #1a0e36;
+}
+
+.develop-locally .purple-info-container ::-webkit-scrollbar-thumb:hover {
+  background: #1a0e36;
+}
+/*# sourceMappingURL=Developlocally.css.map */

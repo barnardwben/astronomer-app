@@ -1,9 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./Home.css";
 import MotionSVG from "./MotionSVG";
+import ComponentSelector from "./ComponentSelector";
 
 function Home() {
+  const [id, setId] = useState("0");
+
+  const devLocalRef = useRef(null);
+  const deployScaleRef = useRef(null);
+
+  const displayContent = (e) => {
+    if (e.target.classList.contains("dev-locally-btn")) {
+      devLocalRef.current.classList.add("active-wc-btn");
+      deployScaleRef.current.classList.remove("active-wc-btn");
+      console.log(devLocalRef, deployScaleRef);
+      setId("0");
+    } else if (e.target.classList.contains("deploy-btn")) {
+      devLocalRef.current.classList.remove("active-wc-btn");
+      deployScaleRef.current.classList.add("active-wc-btn");
+      console.log(devLocalRef, deployScaleRef);
+      setId("1");
+    }
+  };
+
   return (
     <>
       <header className="home-header">
@@ -1077,6 +1097,944 @@ function Home() {
                     </Link>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-five">
+          <div className="s5-container">
+            <h2>Work Locally and Control Astro from Your Terminal</h2>
+            <div className="work-control-btns">
+              <button
+                className="dev-locally-btn wc-btn active-wc-btn"
+                ref={devLocalRef}
+                onClick={displayContent}
+              >
+                Develop Locally
+              </button>
+              <button
+                className="deploy-btn wc-btn"
+                ref={deployScaleRef}
+                onClick={displayContent}
+              >
+                Deploy, Scale, and Manage
+              </button>
+            </div>
+            <div>
+              <ComponentSelector compid={id} />
+            </div>
+            <div className="learn-more-container">
+              <Link to="/get-started" className="learn-more-btn">
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-six">
+          <div className="s6-container">
+            <h2>Resources</h2>
+            <div className="s6-grid">
+              <a href="#" className="s6-grid-link">
+                <svg width={184} height={130} viewBox="0 0 184 130">
+                  <defs>
+                    <linearGradient
+                      id="c"
+                      x1="59.75%"
+                      x2="30.695%"
+                      y1="70.137%"
+                      y2="29.863%"
+                    >
+                      <stop
+                        offset="0%"
+                        stopColor="#9EE5D9"
+                        stopOpacity={0.72}
+                      />
+                      <stop
+                        offset="100%"
+                        stopColor="#9EE5D9"
+                        stopOpacity={0.283}
+                      />
+                    </linearGradient>
+                    <filter
+                      id="b"
+                      width="123.1%"
+                      height="140.4%"
+                      x="-9.6%"
+                      y="-10.1%"
+                      filterUnits="objectBoundingBox"
+                    >
+                      <feOffset
+                        dx={3}
+                        dy={12}
+                        in="SourceAlpha"
+                        result="shadowOffsetOuter1"
+                      />
+                      <feGaussianBlur
+                        in="shadowOffsetOuter1"
+                        result="shadowBlurOuter1"
+                        stdDeviation={4}
+                      />
+                      <feColorMatrix
+                        in="shadowBlurOuter1"
+                        values="0 0 0 0 0.395364854 0 0 0 0 0.409090868 0 0 0 0 0.436542898 0 0 0 0.136155349 0"
+                      />
+                    </filter>
+                    <rect id="a" width={156} height={99} x={16} y={10} rx={9} />
+                    <path
+                      id="d"
+                      d="M0,1 C0,1.55205047 0.447949527,2 1.00052576,2 L1.00052576,2 C1.55257624,2 2,1.55205047 2,1 L2,1 C2,0.447949527 1.55257624,0 1.00052576,0 L1.00052576,0 C0.447949527,0 0,0.447949527 0,1"
+                    />
+                  </defs>
+                  <g
+                    fill="none"
+                    fillRule="evenodd"
+                    transform="translate(1.235 1)"
+                  >
+                    <use xlinkHref="#a" fill="#000" filter="url(#b)" />
+                    <use
+                      xlinkHref="#a"
+                      fill="#000"
+                      fillOpacity={0.5}
+                      filter="url(#b)"
+                    />
+                    <rect
+                      width={155}
+                      height={98}
+                      x={16.5}
+                      y={10.5}
+                      fill="url(#c)"
+                      stroke="#FFF"
+                      rx={9}
+                    />
+                    <rect
+                      width={156}
+                      height={99}
+                      stroke="#3F2971"
+                      strokeLinecap="round"
+                      strokeWidth={1.5}
+                      rx={9}
+                    />
+                    <g transform="translate(55 24)">
+                      <path
+                        stroke="#3F2971"
+                        strokeLinecap="round"
+                        strokeWidth={1.5}
+                        d="M45,22.5 C45,34.9267721 34.9260398,45 22.5,45 C10.0732279,45 0,34.9267721 0,22.5 C0,10.0732279 10.0732279,0 22.5,0 C34.9260398,0 45,10.0732279 45,22.5"
+                      />
+                      <path
+                        fill="#4FCEBA"
+                        d="M34.4782892,20.8999413 C36.5072369,22.0555942 36.5072369,24.9444058 34.4782892,26.1000587 L27.0214669,30.3466502 L19.5652952,34.5932417 C17.5356969,35.7488947 15,34.3044889 15,31.993183 L15,23.5 L15,15.006817 C15,12.6955111 17.5356969,11.2511053 19.5652952,12.4067583 L27.0214669,16.6533498 L34.4782892,20.8999413 Z"
+                      />
+                    </g>
+                    <g transform="translate(27 81)">
+                      <line
+                        x1={0.5}
+                        x2={103.5}
+                        y1={5.5}
+                        y2={5.317}
+                        stroke="#3F2971"
+                        strokeLinecap="round"
+                        strokeWidth={1.5}
+                      />
+                      <path
+                        fill="#4FCEBA"
+                        d="M26,5 C26,7.76159479 23.7615948,10 21,10 C18.2384052,10 16,7.76159479 16,5 C16,2.23840521 18.2384052,0 21,0 C23.7615948,0 26,2.23840521 26,5"
+                      />
+                    </g>
+                    <g transform="translate(174)">
+                      <mask id="e" fill="#fff">
+                        <use xlinkHref="#d" />
+                      </mask>
+                      <path
+                        d="M0,1 C0,1.55205047 0.447949527,2 1.00052576,2 L1.00052576,2 C1.55257624,2 2,1.55205047 2,1 L2,1 C2,0.447949527 1.55257624,0 1.00052576,0 L1.00052576,0 C0.447949527,0 0,0.447949527 0,1"
+                        mask="url(#e)"
+                      />
+                    </g>
+                  </g>
+                </svg>
+                <h4>Webinars</h4>
+              </a>
+              <a href="#" className="s6-grid-link">
+                <svg width="184px" height="130px" viewBox="0 0 184 130">
+                  <defs>
+                    <rect
+                      id="path-70tu9elfgq-1"
+                      x={16}
+                      y={10}
+                      width={156}
+                      height={99}
+                      rx={9}
+                    />
+                    <filter
+                      x="-9.6%"
+                      y="-10.1%"
+                      width="123.1%"
+                      height="140.4%"
+                      filterUnits="objectBoundingBox"
+                      id="filter-70tu9elfgq-2"
+                    >
+                      <feOffset
+                        dx={3}
+                        dy={12}
+                        in="SourceAlpha"
+                        result="shadowOffsetOuter1"
+                      />
+                      <feGaussianBlur
+                        stdDeviation={4}
+                        in="shadowOffsetOuter1"
+                        result="shadowBlurOuter1"
+                      />
+                      <feColorMatrix
+                        values="0 0 0 0 0.395364854   0 0 0 0 0.409090868   0 0 0 0 0.436542898  0 0 0 0.136155349 0"
+                        type="matrix"
+                        in="shadowBlurOuter1"
+                      />
+                    </filter>
+                    <linearGradient
+                      x1="65.5360469%"
+                      y1="70.1368343%"
+                      x2="22.0627396%"
+                      y2="29.8631657%"
+                      id="linearGradient-70tu9elfgq-3"
+                    >
+                      <stop stopColor="#BFEAFF" offset="0%" />
+                      <stop
+                        stopColor="#BFEAFF"
+                        stopOpacity={0.257162027}
+                        offset="100%"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
+                    <g
+                      id="home-page-v2"
+                      transform="translate(-413.000000, -6285.000000)"
+                    >
+                      <g
+                        id="RESOURCES"
+                        transform="translate(150.234704, 6162.000000)"
+                      >
+                        <g
+                          id="Group-65"
+                          transform="translate(0.000000, 124.000000)"
+                        >
+                          <g
+                            id="images"
+                            transform="translate(8.000000, 0.000000)"
+                          >
+                            <g
+                              id="guides"
+                              transform="translate(256.000000, 0.000000)"
+                            >
+                              <g id="Rectangle">
+                                <use
+                                  fill="black"
+                                  fillOpacity={1}
+                                  filter="url(#filter-70tu9elfgq-2)"
+                                  xlinkHref="#path-70tu9elfgq-1"
+                                />
+                                <use
+                                  fill="black"
+                                  fillOpacity={0.5}
+                                  filter="url(#filter-70tu9elfgq-2)"
+                                  xlinkHref="#path-70tu9elfgq-1"
+                                />
+                              </g>
+                              <rect
+                                id="Rectangle"
+                                stroke="#FFFFFF"
+                                fill="url(#linearGradient-70tu9elfgq-3)"
+                                x={16.5}
+                                y={10.5}
+                                width={155}
+                                height={98}
+                                rx={9}
+                              />
+                              <g
+                                id="Group-63"
+                                transform="translate(50.000000, 20.000000)"
+                                stroke="#3F2971"
+                                strokeLinecap="round"
+                                strokeWidth={1.5}
+                              >
+                                <line
+                                  x1={0}
+                                  y1={0.5}
+                                  x2={89}
+                                  y2={0.5}
+                                  id="Line-8"
+                                />
+                                <line
+                                  x1={7.10542736e-15}
+                                  y1={58.5}
+                                  x2={76.0673077}
+                                  y2={58.5}
+                                  id="Line-8"
+                                />
+                                <line
+                                  x1={0}
+                                  y1={50.5}
+                                  x2={58.0673077}
+                                  y2={50.5}
+                                  id="Line-8"
+                                />
+                                <line
+                                  x1={-7.10542736e-15}
+                                  y1={33.5}
+                                  x2={84.0673077}
+                                  y2={33.5}
+                                  id="Line-8"
+                                />
+                                <line
+                                  x1={0}
+                                  y1={25.5}
+                                  x2={69.0673077}
+                                  y2={25.5}
+                                  id="Line-8"
+                                />
+                                <line
+                                  x1={-5.68434189e-14}
+                                  y1={8.5}
+                                  x2={67.0673077}
+                                  y2={8.5}
+                                  id="Line-8"
+                                />
+                              </g>
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={0}
+                                y={0}
+                                width={156}
+                                height={99}
+                                rx={9}
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={0}
+                                y={0}
+                                width={156}
+                                height={99}
+                                rx={9}
+                              />
+                              <circle
+                                id="Oval"
+                                fill="#32B8FB"
+                                cx={33.5}
+                                cy={25.5}
+                                r={7.5}
+                              />
+                              <circle
+                                id="Oval"
+                                fill="#32B8FB"
+                                cx={33.5}
+                                cy={50.5}
+                                r={7.5}
+                              />
+                              <circle
+                                id="Oval"
+                                fill="#32B8FB"
+                                cx={33.5}
+                                cy={75.5}
+                                r={7.5}
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+
+                <h4>Airflow Guides</h4>
+              </a>
+              <a href="#" className="s6-grid-link">
+                <svg
+                  width="184px"
+                  height="130px"
+                  viewBox="0 0 184 130"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <rect
+                      id="path-eikolg-0wk-1"
+                      x={16}
+                      y={10}
+                      width={156}
+                      height={99}
+                      rx={9}
+                    />
+                    <filter
+                      x="-9.6%"
+                      y="-10.1%"
+                      width="123.1%"
+                      height="140.4%"
+                      filterUnits="objectBoundingBox"
+                      id="filter-eikolg-0wk-2"
+                    >
+                      <feOffset
+                        dx={3}
+                        dy={12}
+                        in="SourceAlpha"
+                        result="shadowOffsetOuter1"
+                      />
+                      <feGaussianBlur
+                        stdDeviation={4}
+                        in="shadowOffsetOuter1"
+                        result="shadowBlurOuter1"
+                      />
+                      <feColorMatrix
+                        values="0 0 0 0 0.395364854   0 0 0 0 0.409090868   0 0 0 0 0.436542898  0 0 0 0.136155349 0"
+                        type="matrix"
+                        in="shadowBlurOuter1"
+                      />
+                    </filter>
+                    <linearGradient
+                      x1="8.19622354%"
+                      y1="29.8631657%"
+                      x2="50%"
+                      y2="70.1368343%"
+                      id="linearGradient-eikolg-0wk-3"
+                    >
+                      <stop
+                        stopColor="#DBCDF6"
+                        stopOpacity={0.235764724}
+                        offset="0%"
+                      />
+                      <stop
+                        stopColor="#DBCDF6"
+                        stopOpacity={0.735208151}
+                        offset="100%"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
+                    <g
+                      id="home-page-v2"
+                      transform="translate(-665.000000, -6285.000000)"
+                    >
+                      <g
+                        id="RESOURCES"
+                        transform="translate(150.234704, 6162.000000)"
+                      >
+                        <g
+                          id="Group-65"
+                          transform="translate(0.000000, 124.000000)"
+                        >
+                          <g
+                            id="images"
+                            transform="translate(8.000000, 0.000000)"
+                          >
+                            <g
+                              id="docs"
+                              transform="translate(508.000000, 0.000000)"
+                            >
+                              <g id="Rectangle">
+                                <use
+                                  fill="black"
+                                  fillOpacity={1}
+                                  filter="url(#filter-eikolg-0wk-2)"
+                                  xlinkHref="#path-eikolg-0wk-1"
+                                />
+                                <use
+                                  fill="black"
+                                  fillOpacity={0.5}
+                                  filter="url(#filter-eikolg-0wk-2)"
+                                  xlinkHref="#path-eikolg-0wk-1"
+                                />
+                              </g>
+                              <rect
+                                id="Rectangle"
+                                stroke="#FFFFFF"
+                                fill="url(#linearGradient-eikolg-0wk-3)"
+                                x={16.5}
+                                y={10.5}
+                                width={155}
+                                height={98}
+                                rx={9}
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={0}
+                                y={0}
+                                width={156}
+                                height={99}
+                                rx={9}
+                              />
+                              <line
+                                x1={52}
+                                y1={24.5}
+                                x2={141}
+                                y2={24.5}
+                                id="Line-8"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                              <line
+                                x1={52}
+                                y1={42.5}
+                                x2={141}
+                                y2={42.5}
+                                id="Line-8"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                              <line
+                                x1={52}
+                                y1={33.5}
+                                x2={116.067308}
+                                y2={33.5}
+                                id="Line-8"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={52}
+                                y={56}
+                                width={82}
+                                height={33}
+                                rx={4}
+                              />
+                              <rect
+                                id="Rectangle"
+                                fill="#9478D2"
+                                x={9}
+                                y={9}
+                                width={34}
+                                height={83}
+                                rx={3}
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <h4>Documentation</h4>
+              </a>
+              <a href="#" className="s6-grid-link">
+                <svg
+                  width="183px"
+                  height="130px"
+                  viewBox="0 0 183 130"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <rect
+                      id="path-obi-tpkbv1-1"
+                      x={0}
+                      y={0}
+                      width={156}
+                      height={99}
+                      rx={9}
+                    />
+                    <filter
+                      x="-9.6%"
+                      y="-10.1%"
+                      width="123.1%"
+                      height="140.4%"
+                      filterUnits="objectBoundingBox"
+                      id="filter-obi-tpkbv1-2"
+                    >
+                      <feOffset
+                        dx={3}
+                        dy={12}
+                        in="SourceAlpha"
+                        result="shadowOffsetOuter1"
+                      />
+                      <feGaussianBlur
+                        stdDeviation={4}
+                        in="shadowOffsetOuter1"
+                        result="shadowBlurOuter1"
+                      />
+                      <feColorMatrix
+                        values="0 0 0 0 0.395364854   0 0 0 0 0.409090868   0 0 0 0 0.436542898  0 0 0 0.136155349 0"
+                        type="matrix"
+                        in="shadowBlurOuter1"
+                      />
+                    </filter>
+                    <linearGradient
+                      x1="21.7185692%"
+                      y1="29.8631657%"
+                      x2="70.7374855%"
+                      y2="72.3273969%"
+                      id="linearGradient-obi-tpkbv1-3"
+                    >
+                      <stop
+                        stopColor="#FFC1AD"
+                        stopOpacity={0.175504671}
+                        offset="0%"
+                      />
+                      <stop
+                        stopColor="#FFC1AD"
+                        stopOpacity={0.877328726}
+                        offset="100%"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
+                    <g
+                      id="home-page-v2"
+                      transform="translate(-917.000000, -6285.000000)"
+                    >
+                      <g
+                        id="RESOURCES"
+                        transform="translate(150.234704, 6162.000000)"
+                      >
+                        <g
+                          id="Group-65"
+                          transform="translate(0.000000, 124.000000)"
+                        >
+                          <g
+                            id="images"
+                            transform="translate(8.000000, 0.000000)"
+                          >
+                            <g
+                              id="forum"
+                              transform="translate(760.000000, 0.000000)"
+                            >
+                              <g
+                                id="Group-50"
+                                transform="translate(15.000000, 10.000000)"
+                              >
+                                <g id="Rectangle">
+                                  <use
+                                    fill="black"
+                                    fillOpacity={1}
+                                    filter="url(#filter-obi-tpkbv1-2)"
+                                    xlinkHref="#path-obi-tpkbv1-1"
+                                  />
+                                  <use
+                                    fill="black"
+                                    fillOpacity={0.5}
+                                    filter="url(#filter-obi-tpkbv1-2)"
+                                    xlinkHref="#path-obi-tpkbv1-1"
+                                  />
+                                </g>
+                                <rect
+                                  id="Rectangle"
+                                  stroke="#FFFFFF"
+                                  fill="url(#linearGradient-obi-tpkbv1-3)"
+                                  x={1.5}
+                                  y={0.5}
+                                  width={155}
+                                  height={98}
+                                  rx={9}
+                                />
+                                <circle
+                                  id="Oval"
+                                  fill="#FF865E"
+                                  cx={59}
+                                  cy={33}
+                                  r={6}
+                                />
+                                <circle
+                                  id="Oval"
+                                  fill="#FF865E"
+                                  cx={78}
+                                  cy={33}
+                                  r={6}
+                                />
+                                <circle
+                                  id="Oval"
+                                  fill="#FF865E"
+                                  cx={97}
+                                  cy={33}
+                                  r={6}
+                                />
+                              </g>
+                              <path
+                                d="M121,-3.44613227e-13 C125.970563,-3.45526304e-13 130,4.02943725 130,9 L130,52 C130,56.9705627 125.970563,61 121,61 L42.956,60.999 L42.643592,83 L18.55,60.999 L9,61 C4.02943725,61 -2.9439953e-15,56.9705627 0,52 L0,9 C-6.08718376e-16,4.02943725 4.02943725,-3.43700149e-13 9,-3.44613227e-13 L121,-3.44613227e-13 Z"
+                                id="Combined-Shape"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                              <path
+                                d="M146,23 C150.970563,23 155,27.0294373 155,32 L155,74 C155,78.9705627 150.970563,83 146,83 L140.057,83 L120,101 L120,83 L66,83 C61.0294373,83 57,78.9705627 57,74 L57,32 C57,27.0294373 61.0294373,23 66,23 L146,23 Z"
+                                id="Combined-Shape"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <h4>Forum</h4>
+              </a>
+              <a href="#" className="s6-grid-link">
+                <svg
+                  width="184px"
+                  height="130px"
+                  viewBox="0 0 184 130"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <rect
+                      id="path-9bu6f_ogs8-1"
+                      x={16}
+                      y={10}
+                      width={156}
+                      height={99}
+                      rx={9}
+                    />
+                    <filter
+                      x="-9.6%"
+                      y="-10.1%"
+                      width="123.1%"
+                      height="140.4%"
+                      filterUnits="objectBoundingBox"
+                      id="filter-9bu6f_ogs8-2"
+                    >
+                      <feOffset
+                        dx={3}
+                        dy={12}
+                        in="SourceAlpha"
+                        result="shadowOffsetOuter1"
+                      />
+                      <feGaussianBlur
+                        stdDeviation={4}
+                        in="shadowOffsetOuter1"
+                        result="shadowBlurOuter1"
+                      />
+                      <feColorMatrix
+                        values="0 0 0 0 0.395364854   0 0 0 0 0.409090868   0 0 0 0 0.436542898  0 0 0 0.136155349 0"
+                        type="matrix"
+                        in="shadowBlurOuter1"
+                      />
+                    </filter>
+                    <linearGradient
+                      x1="65.5360469%"
+                      y1="70.1368343%"
+                      x2="22.0627396%"
+                      y2="29.8631657%"
+                      id="linearGradient-9bu6f_ogs8-3"
+                    >
+                      <stop
+                        stopColor="#DADCE0"
+                        stopOpacity={0.614882676}
+                        offset="0%"
+                      />
+                      <stop
+                        stopColor="#DADCE0"
+                        stopOpacity={0.244389887}
+                        offset="100%"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <g
+                    id="Symbols"
+                    stroke="none"
+                    strokeWidth={1}
+                    fill="none"
+                    fillRule="evenodd"
+                  >
+                    <g
+                      id="home-page-v2"
+                      transform="translate(-1169.000000, -6285.000000)"
+                    >
+                      <g
+                        id="RESOURCES"
+                        transform="translate(150.234704, 6162.000000)"
+                      >
+                        <g
+                          id="Group-65"
+                          transform="translate(0.000000, 124.000000)"
+                        >
+                          <g
+                            id="images"
+                            transform="translate(8.000000, 0.000000)"
+                          >
+                            <g
+                              id="registry"
+                              transform="translate(1012.000000, 0.000000)"
+                            >
+                              <g id="Rectangle">
+                                <use
+                                  fill="black"
+                                  fillOpacity={1}
+                                  filter="url(#filter-9bu6f_ogs8-2)"
+                                  xlinkHref="#path-9bu6f_ogs8-1"
+                                />
+                                <use
+                                  fill="black"
+                                  fillOpacity={0.5}
+                                  filter="url(#filter-9bu6f_ogs8-2)"
+                                  xlinkHref="#path-9bu6f_ogs8-1"
+                                />
+                              </g>
+                              <rect
+                                id="Rectangle"
+                                stroke="#FFFFFF"
+                                fill="url(#linearGradient-9bu6f_ogs8-3)"
+                                x={16.5}
+                                y={10.5}
+                                width={155}
+                                height={98}
+                                rx={9}
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={0}
+                                y={0}
+                                width={156}
+                                height={99}
+                                rx={9}
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={0}
+                                y={0}
+                                width={156}
+                                height={99}
+                                rx={9}
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={13}
+                                y={59}
+                                width={38}
+                                height={25}
+                                rx={3}
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={59}
+                                y={59}
+                                width={38}
+                                height={25}
+                                rx={3}
+                              />
+                              <rect
+                                id="Rectangle"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                                x={105}
+                                y={59}
+                                width={38}
+                                height={25}
+                                rx={3}
+                              />
+                              <rect
+                                id="Rectangle"
+                                fill="#C4C7CD"
+                                x={12}
+                                y={23}
+                                width={55}
+                                height={22}
+                                rx={3}
+                              />
+                              <line
+                                x1={77}
+                                y1={25.5}
+                                x2={142}
+                                y2={25.5}
+                                id="Line-8"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                              <line
+                                x1={77}
+                                y1={43.5}
+                                x2={142}
+                                y2={43.5}
+                                id="Line-8"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                              <line
+                                x1={77}
+                                y1={34.5}
+                                x2={123.325592}
+                                y2={34.5}
+                                id="Line-8"
+                                stroke="#3F2971"
+                                strokeWidth={1.5}
+                                strokeLinecap="round"
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+
+                <h4>Registry</h4>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-seven">
+          <div className="s7-image">
+            <img src="\images\svgs-s7\cta-pipes.png" alt="" />
+          </div>
+          <div className="s7-container">
+            <div>
+              <h2>
+                Start building your next-generation <br /> data platform with
+                Astro
+              </h2>
+              <div className="get-started-container">
+                <Link to="/get-started" className="get-started-btn">
+                  Get Started
+                </Link>
               </div>
             </div>
           </div>
